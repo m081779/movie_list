@@ -1,0 +1,44 @@
+
+
+
+<div class="container ">
+	<img src="/assets/img/movie.png" alt="" class="">
+	<h1 class="text-center text-shadow" id="title">Watch-Da-Movie!</h1>
+	<div class="row">
+		<h3 id="label" class="text-shadow text-center col-sm-offset-3 col-sm-6">Enter a movie, or say "Add" and then then the name of your movie:</h3>
+		<form class="col-sm-offset-3 col-sm-6">
+			<div class="form-group">
+				<div class="bubble">
+					<textarea name="movie" class="" rows="2" id="movie" autofocus></textarea>
+				</div>
+				<input type="submit" value="Submit" id="submit" class="btn btn-danger btn-block" class="form-control">
+			</div>
+		</form>
+	</div>
+	<div class="row">
+		<div class="col-sm-6">
+			<h3 class="sectionTitle text-shadow text-center">Movie Queue:</h3>
+			{{#each movies}}
+				{{#unless watched}}
+					<div class="movie text-shadow">
+					<p>{{this.id}}. {{movie_name}}<button class="watch pull-right btn btn-danger" id="{{this.id}}">Watched it!</button></p>
+
+					</div>
+				{{/unless}}
+			{{/each}}
+		</div>
+
+		<div class="col-sm-6">
+			<h3 class="sectionTitle text-shadow text-center">Watched Movies:</h3>
+			{{#each movies}}
+				{{#if watched}}
+					<div class="watched movie text-shadow text-center">
+						<p>{{movie_name}}</p>
+					</div>
+				{{/if}}
+			{{/each}}
+		</div>
+	</div>
+	
+</div>
+

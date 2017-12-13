@@ -1,0 +1,150 @@
+body {
+	background-image: url('/assets/img/background.jpg');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	background-attachment: fixed;
+	user-select: none;
+}
+
+.movie {
+	background: orange;
+	height: 45px;
+	margin: 15px;
+	line-height: 36px;
+	font-size: 24px;
+	font-family: 'Nothing You Could Do', cursive;
+	padding-left: 15px;
+	border: 3px solid chocolate;
+}
+
+img {
+	height: 200px;
+	position: absolute;
+	left:50%;
+	transform: translateX(-50%);
+	z-index: -1;
+}
+
+.text-shadow {
+	color: white;
+	text-shadow: 1px 1px rgba(0,0,0,0.5);
+}
+
+.sectionTitle{
+	background:orange;
+	border: 3px solid chocolate;
+	padding: 5px;
+	border-radius: 3px;
+	width: 50%;
+	margin: 5px auto;
+	font-family: 'Bigelow Rules', cursive;
+	font-size: 50px;
+}
+
+#title {
+	margin-top: 40px;
+    margin-bottom: 35px;
+    font-size: 110px;
+    font-weight: bold;
+    font-family: 'Bigelow Rules', cursive;
+    text-shadow: 3px 3px rgba(0,0,0,1);
+    letter-spacing: 3px;
+}
+
+#submit	{
+	background: chocolate;
+	margin-bottom: 10px;
+	font-family: 'Bigelow Rules', cursive;
+	font-size: 40px;
+	padding: 0;
+}
+
+.watch {
+	background: chocolate;
+	font-size: 18px;
+}
+
+#label {
+	font-size: 26px;
+	font-style: italic;
+	color: brown;
+	font-family: 'Nothing You Could Do', cursive;
+	font-weight: 600;
+	letter-spacing: 2px;
+
+}
+.warning {
+	color: red;
+	font-style: italic;
+}
+
+.bubble {
+	position: relative;
+	height: 80px;
+	background: white;
+	margin-bottom: 20px;
+	border-radius: 10px;
+	border: 2px solid chocolate;
+}
+
+.bubble:after {
+	position: absolute;
+	content: ' ';
+	/*background: black;*/
+	height: 0px;
+	width: 0px;
+	top: 94%;
+	left: 50%;
+	transform: translateX(-50%);
+	border-top: 20px solid white;
+	border-right: 20px solid transparent;
+	border-bottom: 20px solid transparent;
+	border-left: 20px solid transparent;
+}
+
+.bubble:before {
+	position: absolute;
+	content: ' ';
+	height: 0px;
+	width: 0px;
+	top: 99%;
+	left: 50%;
+	transform: translateX(-50%);
+	border-top: 20px solid chocolate;
+	border-right: 20px solid transparent;
+	border-bottom: 20px solid transparent;
+	border-left: 20px solid transparent;
+}
+
+#movie {
+	position: absolute;
+	width: 95%;
+	border:none;
+	outline: none;
+	background: transparent;
+	margin: auto;
+	left: 50%;
+	transform: translateX(-50%);
+	resize: none;
+	font-size: 20px;
+	line-height: 40px;
+	overflow: hidden;
+}
+
+
+textarea:focus {
+	outline: none;
+}
+
+textarea::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: brown;
+}
+textarea::-moz-placeholder { /* Firefox 19+ */
+  color: brown;
+}
+
+.btn.btn-danger.watched {
+	background: orangered;
+	border-color: tan;
+	border-radius: 0;
+}
