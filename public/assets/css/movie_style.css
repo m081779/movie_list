@@ -1,10 +1,8 @@
 body {
-	/*background-image: url('/assets/img/background.jpg');*/
-	background-image: url('http://thewongcouple.com/our-wedding/images/CinemaBackground.jpg');
+	background-image: url('/assets/img/background.jpg');
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 	background-attachment: fixed;
-	/*user-select: none;*/
 }
 
 .movie {
@@ -58,9 +56,6 @@ img {
     6px 6px 0px #A80000,
     7px 7px 0px #A80000,
     8px 8px 3px rgba(255,255,255,0.6);
-/*   -webkit-text-fill-color: white;  
-   -webkit-text-stroke-width: 0.1px;
-   -webkit-text-stroke-color: #A80000;*/
 }
 
 #submit	{
@@ -83,8 +78,8 @@ img {
 	font-family: 'Nothing You Could Do', cursive;
 	font-weight: 600;
 	letter-spacing: 2px;
-
 }
+
 .warning {
 	color: red;
 	font-style: italic;
@@ -102,10 +97,9 @@ img {
 .bubble:after {
 	position: absolute;
 	content: ' ';
-	/*background: black;*/
 	height: 0px;
 	width: 0px;
-	top: 94%;
+	top: 96%;
 	left: 50%;
 	transform: translateX(-50%);
 	border-top: 20px solid white;
@@ -119,7 +113,7 @@ img {
 	content: ' ';
 	height: 0px;
 	width: 0px;
-	top: 99%;
+	top: 100%;
 	left: 50%;
 	transform: translateX(-50%);
 	border-top: 20px solid #A80000;
@@ -153,10 +147,4 @@ textarea::-webkit-input-placeholder { /* Chrome/Opera/Safari */
 }
 textarea::-moz-placeholder { /* Firefox 19+ */
   color: brown;
-}
-
-.btn.btn-danger.watched {
-	background: orangered;
-	border-color: tan;
-	border-radius: 0;
 }
