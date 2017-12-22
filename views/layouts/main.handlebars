@@ -17,9 +17,17 @@
 	crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/assets/css/movie_style.css">
+	<script>
+		window.addEventListener('load', function () {
+			let loadScreen = document.getElementById('load-screen');
+			document.body.removeChild(loadScreen);
+		});
+	</script>
 </head>
 <body>
-
+	<div id="load-screen">
+		<div id="loading">Loading...</div>
+	</div>
 
 	{{{body}}}
 
