@@ -19,7 +19,7 @@ function createmovie(movie) {
 	}
 }
 
-function queryMovie(movie, event, element) {
+function queryMovie(movie) {
 	let queryURL = "https://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=d3306ff0";
 	getVideo(movie+" movie trailer");
 	console.log('movie from query:', movie)
@@ -29,16 +29,7 @@ function queryMovie(movie, event, element) {
 	}).done((movieData)=>{
 		console.log('movieData from get request:',movieData)
 		showMovieModal(movieData);
-		positionModal(event, element)
 	});
-}
-
-function positionModal(event, element) {
-	let x = event.originalEvent.x;
-	console.log(topOitem, leftOitem)
-	// $('#movieModal').css({
-	// 	'top': element.offset().top - $('#movieModal').height() - element.height()*1.5,
-	// });
 }
 
 function showMovieModal(data) {
@@ -72,10 +63,8 @@ function showMovieModal(data) {
 	}
 }
 
-function hideMovieModal() {
-	$('#movieModal').hide();
-}
 
+//function that runs once the youtube script tag loads
 function init() {
 	gapi.client.setApiKey('AIzaSyBlwnFUqu7sXdnRvYhnrEDn7ZMgOulZW2k');
 	gapi.client.load('youtube', 'v3', function () {
@@ -83,6 +72,8 @@ function init() {
 	})
 }
 
+
+//function that queries the youtube database to get the video id's for trailers
 function getVideo(movie) {	
 	idArr = [];
 	let request = gapi.client.youtube.search.list({
@@ -106,6 +97,7 @@ function getVideo(movie) {
 	});
 }
 
+//function that cycles through the youtube videos to find the right trailer
 function showNextTrailer() {
 	let index = idArr.indexOf(vidId);
 	vidId = idArr[index+1];
@@ -135,11 +127,13 @@ if (annyang) {
 	  .prependTo('form');
 }
 
+
 //event listener for submit button
 $('#submit').on('click', function (event) {
 	event.preventDefault();
 	createmovie();
 });
+
 
 //event listener for enter key
 $('#movieInput').keydown(function (e) {
@@ -148,6 +142,7 @@ $('#movieInput').keydown(function (e) {
 		createmovie();  
 	}
 });
+
 
 //event listener for watch buttons to execute put request
 $(document).on('click', '.watch', function (event) {
@@ -160,17 +155,23 @@ $(document).on('click', '.watch', function (event) {
 	});
 });
 
+
+//click event for running query on movie title, and populating the modal
 $(document).on('click', '.movieName', function (event) {
 	event.preventDefault();
 	let movie = $(this).data('moviename');
-	queryMovie(movie, event, $(this));
+	queryMovie(movie);
 });
 
+
+//click event for closing the modal
 $('.close').on('click', function (event) {
 	event.preventDefault();
-	hideMovieModal();
+	$('#movieModal').hide();
 });
 
+
+//click event for button that cycles through different youtube videos
 $('#nextButton').on('click', function (event) {
 	event.preventDefault();
 	showNextTrailer();
