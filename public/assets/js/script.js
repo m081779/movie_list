@@ -35,13 +35,10 @@ function queryMovie(movie, event, element) {
 
 function positionModal(event, element) {
 	let x = event.originalEvent.x;
-	let topOitem = element.offset().top - $('#movieModal').height() + element.height()/2;
-	let leftOitem = x + $('#movieModal').width()/2 +20;
 	console.log(topOitem, leftOitem)
-	$('#movieModal').css({
-		'top': element.offset().top - $('#movieModal').height() - element.height()*1.5,
-		'left': x + $('#movieModal').width()/2 + 30
-	});
+	// $('#movieModal').css({
+	// 	'top': element.offset().top - $('#movieModal').height() - element.height()*1.5,
+	// });
 }
 
 function showMovieModal(data) {
