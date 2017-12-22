@@ -22,10 +22,12 @@ function createmovie(movie) {
 function queryMovie(movie, event, element) {
 	let queryURL = "https://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=d3306ff0";
 	getVideo(movie+" movie trailer");
+	console.log('movie from query:', movie)
 	$.ajax({
 		url: queryURL,
 		type: 'GET'
 	}).done((movieData)=>{
+		console.log('movieData from get request:',movieData)
 		showMovieModal(movieData);
 		positionModal(event, element)
 	});
