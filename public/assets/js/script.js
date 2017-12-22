@@ -1,5 +1,7 @@
 let idArr = [];
 let vidId = '';
+
+
 //function that captures input from textarea, validates it, 
 //and then posts it to the server.
 function createmovie(movie) {
@@ -19,19 +21,21 @@ function createmovie(movie) {
 	}
 }
 
+
+//function that runs ajax call to omdb, and initiates the query to youtube api
 function queryMovie(movie) {
 	let queryURL = "https://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=d3306ff0";
 	getVideo(movie+" movie trailer");
-	console.log('movie from query:', movie)
 	$.ajax({
 		url: queryURL,
 		type: 'GET'
 	}).done((movieData)=>{
-		console.log('movieData from get request:',movieData)
 		showMovieModal(movieData);
 	});
 }
 
+
+//function that populates the modal when a movie is clicked
 function showMovieModal(data) {
 	let {Title, Plot, imdbRating, year, Runtime, Actors} = data;
 	$('#movieTitle').text('');
@@ -47,6 +51,8 @@ function showMovieModal(data) {
 		$('#movieActors').hide().val('');
 		$('#moviePlot').hide().val('');
 	} else {
+
+		//loops through ratings to dynamically display them
 		for (var i = 0; i < data.Ratings.length; i++) {
 			let {Source, Value} = data.Ratings[i];
 			let li = $('<li class="rating">')
@@ -68,7 +74,14 @@ function showMovieModal(data) {
 function init() {
 	gapi.client.setApiKey('AIzaSyBlwnFUqu7sXdnRvYhnrEDn7ZMgOulZW2k');
 	gapi.client.load('youtube', 'v3', function () {
-		//youtube api is ready
+		console.log('Youtube is ready for queries...')
+		//click event for running query on movie title, and populating the modal
+		$(document).on('click', '.movieName', function (event) {
+			event.preventDefault();
+			let movie = $(this).data('moviename');
+			queryMovie(movie);
+			console.log('Query sent');
+		});
 	})
 }
 
@@ -81,7 +94,7 @@ function getVideo(movie) {
 		type: 'video',
 		q: encodeURIComponent(movie).replace(/%20/g, '+'),
 		maxResults: 20,
-		order: 'viewCount',
+		order: 'relevance',
 
 	});
 
@@ -156,12 +169,7 @@ $(document).on('click', '.watch', function (event) {
 });
 
 
-//click event for running query on movie title, and populating the modal
-$(document).on('click', '.movieName', function (event) {
-	event.preventDefault();
-	let movie = $(this).data('moviename');
-	queryMovie(movie);
-});
+
 
 
 //click event for closing the modal
