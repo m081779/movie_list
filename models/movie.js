@@ -17,6 +17,12 @@ let movie = {
 		orm.updateOne(table, setColumn, setValue, col, val, function (result) {
 			callback(result);
 		});
+	},
+
+	updateTime: function (table, setColumn, setValue, col, val, callback) {
+		orm.updateOne(table, setColumn, setValue, col, val, function (result) {
+			callback(result);
+		});
 	}
 }
 

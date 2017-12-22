@@ -2,14 +2,14 @@
 
 
 <div class="container ">
-	<img src="/assets/img/movie.png" alt="" class="">
+	<img src="" alt="" class="">
 	<h1 class="text-center text-shadow" id="title">Watch-Da-Movie!</h1>
 	<div class="row">
 		<h3 id="label" class="text-shadow text-center col-sm-offset-3 col-sm-6">Enter a movie, or say "Add" and then then the name of your movie:</h3>
 		<form class="col-sm-offset-3 col-sm-6">
 			<div class="form-group">
 				<div class="bubble">
-					<textarea name="movie" class="" rows="2" id="movie" autofocus></textarea>
+					<textarea name="movie" class="" rows="2" id="movieInput" autofocus></textarea>
 				</div>
 				<input type="submit" value="Submit" id="submit" class="btn btn-danger btn-block" class="form-control">
 			</div>
@@ -21,7 +21,7 @@
 			{{#each movies}}
 				{{#unless watched}}
 					<div class="movie text-shadow">
-					<p>{{this.id}}. {{movie_name}}<button class="watch pull-right btn btn-danger" id="{{this.id}}">Watched it!</button></p>
+					<p data-movieName="{{movie_name}}" class="movieListItem">{{this.id}}. <span class="movieName">{{movie_name}}</span><button class="watch pull-right btn btn-danger" id="{{this.id}}">Watched it!</button></p>
 
 					</div>
 				{{/unless}}
@@ -32,13 +32,26 @@
 			<h3 class="sectionTitle text-shadow text-center">Watched Movies:</h3>
 			{{#each movies}}
 				{{#if watched}}
-					<div class="watched movie text-shadow text-center">
-						<p>{{movie_name}}</p>
+					<div class="watched movie text-shadow">
+						<p class="watchedMovie">{{movie_name}}</p>
+						<p class="dateTime">{{watchedAt}}</p>
 					</div>
 				{{/if}}
 			{{/each}}
 		</div>
-	</div>
-	
-</div>
+		<div id="movieModal" class="text-center">
+			<div class="modalHeader">
+				<div class="close"><i class="fa fa-times fa-2x" aria-hidden="true"></i></div>
+			</div>
+			<h1 id="movieTitle" class=""></h1>
+			<ul id="movieRatings"></ul>
+			<div id="movieActors"></div>
+			<p id="moviePlot"></p>
+			<iframe id="trailer" src="" frameborder="0" allowfullscreen></iframe>
+			<button id="nextButton" class="btn btn-danger btn-block">Not it?  Try again!</button>
+		</div>
+		
+	</div>{{!-- end of row --}}
+	<!-- Modal -->
+</div>{{!-- end of container --}}
 

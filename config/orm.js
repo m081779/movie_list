@@ -27,6 +27,15 @@ let orm = {
 			if (err) throw err;
 			callback(result);
 		});
+	},
+
+	updateTime: function (table, setColumn, setValue, col, val, callback) {
+		let query = 'UPDATE ?? SET ?? = ? WHERE ??=?';
+		let params = [table, setColumn, setValue, col, val];
+		connection.query(query, params, (err, result) =>{
+			if (err) throw err;
+			callback(result);
+		});
 	}
 }
 
