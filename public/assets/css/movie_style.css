@@ -65,19 +65,13 @@ img {
 			     8px 8px 3px rgba(255,255,255,0.6);
 }
 
-.btn {
-	border-radius: 0px;
-}
-
 #submit	{
 	background: #A80000;
 	margin-bottom: 10px;
 	font-family: 'Bigelow Rules', cursive;
 	font-size: 40px;
 	padding: 0;
-	border-radius: 4px;
 }
-
 
 .watch {
 	background: #A80000;
