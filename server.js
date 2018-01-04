@@ -3,8 +3,6 @@ const methodOverride = require('method-override');
 const bodyParser = require('body-parser');
 const path = require('path');
 const exphbs = require('express-handlebars');
-
-
 const app = express();
 
 app.use(bodyParser.json());
